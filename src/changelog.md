@@ -1,4 +1,14 @@
+# 6: routing
 
+added Switch and Route to App.js from the react-router-dom module
+
+added links to the components:
+
+- '/' exact for home;
+- '/about'
+- '/my-cards'
+- '/signin'
+- '/signout'
 
 # 6: react router dom
 
@@ -6,7 +16,7 @@ install react-router-dom package
 
 - run script:
   - `npm i react-router-dom`
-  - add BrowserRouter to index.js 
+  - add BrowserRouter to index.js
 
 # 6: about
 
