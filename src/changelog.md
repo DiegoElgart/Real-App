@@ -1,3 +1,14 @@
+# 5: navbar
+
+create a navbar component
+
+- copy a navbar from bootrstrap
+- add the following nav items:
+  - About
+  - My cards
+  - Sing in
+  - sing Up
+
 # 5: change layout
 
 change layout to have header main and footer
