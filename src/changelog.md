@@ -1,3 +1,25 @@
+
+
+# 6: react router dom
+
+install react-router-dom package
+
+- run script:
+  - `npm i react-router-dom`
+  - add BrowserRouter to index.js 
+
+# 6: about
+
+create an about page component
+
+# 6: home
+
+create a home page component
+
+# 5: footer
+
+create a footer component
+
 # 5: navbar
 
 create a navbar component

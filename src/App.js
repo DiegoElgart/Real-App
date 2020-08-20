@@ -1,6 +1,10 @@
 import React from "react";
 import "./App.css";
 import Navbar from "./components/navbar";
+import Footer from "./components/footer";
+import Home from "./components/home";
+import About from "./components/about";
+
 
 function App() {
   return (
@@ -8,8 +12,12 @@ function App() {
       <header>
         <Navbar></Navbar>
       </header>
-      <main className='container-fluid flex-fill'>this is the main</main>
-      <footer>this is the footer</footer>
+      <main className='container-fluid flex-fill'>
+        <About />
+      </main>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }
