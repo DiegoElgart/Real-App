@@ -1,3 +1,7 @@
+# 5: change layout
+
+change layout to have header main and footer
+
 # 5 bootstrap - install and configure packages
 
 install and configure bootstrap and fontawesome
@@ -13,6 +17,7 @@ import "jquery/dist/jquery";
 import "popper.js/dist/popper";
 import "bootstrap/dist/js/bootstrap";
 ```
+
 - insert some bootsrap and fontawesome code to check if it works
 
 # 5: reset project

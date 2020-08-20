@@ -3,9 +3,10 @@ import "./App.css";
 
 function App() {
   return (
-    <div className='App'>
-      <p className='text-danger'>Bootstrap works !!</p>
-      <i className=' fas fa-user'></i>Fontawesome works!
+    <div className='d-flex flex-column min-vh-100'>
+      <header>This is the header</header>
+      <main className='container-fluid flex-fill'>this is the main</main>
+      <footer>this is the footer</footer>
     </div>
   );
 }
