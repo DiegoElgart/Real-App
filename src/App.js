@@ -5,6 +5,7 @@ import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import Home from "./components/home";
 import About from "./components/about";
+import SignUp from "./components/singup";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       </header>
       <main className='container-fluid flex-fill'>
         <Switch>
+          <Route path='/signup' component={SignUp}></Route>
           <Route path='/about' component={About}></Route>
           <Route path='/' exact component={Home}></Route>
         </Switch>

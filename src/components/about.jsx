@@ -1,15 +1,12 @@
 import React, { Component } from "react";
+import PageHeader from "./common/pageHeader";
 
 class About extends Component {
   state = {};
   render() {
     return (
       <div className='container'>
-        <div className='row'>
-          <div className='col-12 mt-4'>
-            <h1>About Real App</h1>
-          </div>
-        </div>
+        <PageHeader titleText='About Real App'></PageHeader>
         <div className='row'>
           <div className='col-12'>
             <p>

@@ -1,30 +1,35 @@
+# 7: Backend + Axios
+
+set the backend server and axios library
+
+- download the RestApi project from the NodeJS book at chapter 14
+  - install it's dependencies
+  - install cors package `npm i cors`
+  - set cors package to be used on app.js
+- on react project set axios package
+  - install axios package `npm i axios`
+  - create a service named `services/httpService.js`
+  - export all of axios http methods
+
+# 6: Input + Signup form
+
+create the input signup form components
+
+# 6: page header
+
+create a PageHeader component and replace all headers (home, about, signup pages) with the new PageHeader component
+
+# 6: signup
+
+create a signup page and configure its route
+
 # 6: routing
 
-added Switch and Route to App.js from the react-router-dom module
-
-added links to the components:
-
-- '/' exact for home;
-- '/about'
-- '/my-cards'
-- '/signin'
-- '/signout'
+configure routeing and links to About and Home pages
 
 # 6: react router dom
 
 install react-router-dom package
-
-- run script:
-  - `npm i react-router-dom`
-  - add BrowserRouter to index.js
-
-# 6: about
-
-create an about page component
-
-# 6: home
-
-create a home page component
 
 # 5: footer
 
