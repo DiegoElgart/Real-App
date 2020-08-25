@@ -1,3 +1,7 @@
+# 7: config
+
+create a `config.json` file on src directory and set `apiUrl` property to the backedn api url
+
 # 7: Backend + Axios
 
 set the backend server and axios library
