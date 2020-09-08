@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import PageHeader from "./common/pageHeader";
-import Input from "./common/input";
 
 class Home extends Component {
   state = {};
@@ -13,12 +12,6 @@ class Home extends Component {
             <p>This is my first react project and it is awesome!</p>
           </div>
         </div>
-        <Input
-          type='number'
-          placeholder='4'
-          name='myinput'
-          label='my inputs label'
-          error='this is a serious error!!'></Input>
       </div>
     );
   }

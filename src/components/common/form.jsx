@@ -18,12 +18,10 @@ class Form extends Component {
 
   validateProperty = ({ name, value }) => {
     const obj = { [name]: value };
-    const schema = { [name]: this.schema[name] }
+    const schema = { [name]: this.schema[name] };
     const { error } = Joi.validate(obj, schema);
     return error ? error.details[0].message : null;
-
   };
-
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -31,21 +29,20 @@ class Form extends Component {
     // if (errors) {
     //   this.setState({ errors });
     // }
-    this.setState({ errors: errors || {} })
+    this.setState({ errors: errors || {} });
 
-    if (errors) return
-    this.doSubmit()
+    if (errors) return;
+    this.doSubmit();
   };
 
   handleChange = ({ currentTarget: input }) => {
     const errors = { ...this.state.errors };
-    const errorMessage = this.validateProperty(input)
+    const errorMessage = this.validateProperty(input);
     if (errorMessage) {
       errors[input.name] = errorMessage;
     } else {
-      delete errors[input.name]
+      delete errors[input.name];
     }
-
 
     const data = { ...this.state.data };
     data[input.name] = input.value;
@@ -67,7 +64,11 @@ class Form extends Component {
   }
 
   renderButton(label) {
-    return <button disable={this.validate()} className='btn btn-primary'>{label}</button>;
+    return (
+      <button disable={this.validate()} className='btn btn-primary'>
+        {label}
+      </button>
+    );
   }
 }
 

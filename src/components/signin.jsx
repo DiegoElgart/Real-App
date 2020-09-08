@@ -1,19 +1,14 @@
 import React from "react";
 import Joi from "joi-browser";
+import userService from "../services/userService";
 
 import PageHeader from "./common/pageHeader";
 import Form from "./common/form";
-
-import http from "../services/httpService";
-import { apiUrl } from "../config.json";
-import { toast } from "react-toastify";
-import userService from "../services/userService";
 import { Redirect } from "react-router-dom";
 
-class SignUp extends Form {
+class SignIn extends Form {
   state = {
     data: {
-      name: "",
       password: "",
       email: "",
     },
@@ -23,45 +18,29 @@ class SignUp extends Form {
   schema = {
     email: Joi.string().required().email().label("Email"),
     password: Joi.string().required().min(6).label("Password"),
-    name: Joi.string().required().min(2).label("Name"),
   };
   async doSubmit() {
-    const { history } = this.props;
-
-    const data = { ...this.state.data };
-    data.biz = false;
-
+    const { email, password } = this.state.data;
     try {
-      await http.post(`${apiUrl}/users`, data);
-      toast("You are now a real-app user! You rock!", {
-        position: "top-center",
-        type: "success",
-      });
-
-      history.replace("/signin");
+      await userService.login(email, password);
+      window.location = "/";
     } catch (error) {
       if (error.response && error.response.status === 400) {
-        console.log(error.response);
-        this.setState({
-          errors: {
-            ...this.state.errors,
-            email: "Email is already registered",
-          },
-        });
+        this.setState({ errors: error.response.data });
       }
     }
   }
+
   render() {
     if (userService.getCurrentUser()) {
       return <Redirect to='/' />;
     }
-
     return (
       <div className='container'>
-        <PageHeader titleText='Sign Up for Real App'></PageHeader>
+        <PageHeader titleText='Sign In'></PageHeader>
         <div className='row'>
           <div className='col-12'>
-            <p>You can open a new account for free</p>
+            <p>Welcom back!</p>
           </div>
         </div>
         <div className='row'>
@@ -69,8 +48,8 @@ class SignUp extends Form {
             <form onSubmit={this.handleSubmit} noValidate autoComplete='off'>
               {this.renderInput("email", "Email", "email")}
               {this.renderInput("password", "Password", "password")}
-              {this.renderInput("name", "Name")}
-              {this.renderButton("Signup")}
+
+              {this.renderButton("Sign In")}
             </form>
           </div>
         </div>
@@ -79,4 +58,4 @@ class SignUp extends Form {
   }
 }
 
-export default SignUp;
+export default SignIn;

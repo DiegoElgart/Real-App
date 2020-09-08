@@ -6,11 +6,11 @@ import Form from "./common/form";
 
 import http from "../services/httpService";
 import { apiUrl } from "../config.json";
-import { toast } from "react-toastify";
+
 import userService from "../services/userService";
 import { Redirect } from "react-router-dom";
 
-class SignUp extends Form {
+class BizSignUp extends Form {
   state = {
     data: {
       name: "",
@@ -26,22 +26,17 @@ class SignUp extends Form {
     name: Joi.string().required().min(2).label("Name"),
   };
   async doSubmit() {
-    const { history } = this.props;
+    // const { history } = this.props;
 
-    const data = { ...this.state.data };
-    data.biz = false;
+    const data = { ...this.state.data, biz: true };
 
     try {
       await http.post(`${apiUrl}/users`, data);
-      toast("You are now a real-app user! You rock!", {
-        position: "top-center",
-        type: "success",
-      });
+      await userService.login(data.email, data.password);
 
-      history.replace("/signin");
+      window.location = "/create-card";
     } catch (error) {
       if (error.response && error.response.status === 400) {
-        console.log(error.response);
         this.setState({
           errors: {
             ...this.state.errors,
@@ -58,10 +53,10 @@ class SignUp extends Form {
 
     return (
       <div className='container'>
-        <PageHeader titleText='Sign Up for Real App'></PageHeader>
+        <PageHeader titleText='Business registration form'></PageHeader>
         <div className='row'>
           <div className='col-12'>
-            <p>You can open a new account for free</p>
+            <p>Open a business account! It is free for now... </p>
           </div>
         </div>
         <div className='row'>
@@ -70,7 +65,7 @@ class SignUp extends Form {
               {this.renderInput("email", "Email", "email")}
               {this.renderInput("password", "Password", "password")}
               {this.renderInput("name", "Name")}
-              {this.renderButton("Signup")}
+              {this.renderButton("Next")}
             </form>
           </div>
         </div>
@@ -79,4 +74,4 @@ class SignUp extends Form {
   }
 }
 
-export default SignUp;
+export default BizSignUp;
